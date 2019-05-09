@@ -71,7 +71,6 @@ def build_plugin(bld, bundle, name, source, cxxflags=[], cppflags=[], libs=[], a
     obj.target       = os.path.join(bundle, name)
     if cxxflags != []:
         obj.cxxflags = cxxflags
-    obj.cxxflags = obj.cxxflags + ['-msse', '-mfpmath=sse', '-ffast-math']
     if cppflags != []:
         obj.cppflags = cppflags
     if libs != []:
