@@ -177,7 +177,7 @@
 
 /* = LED LINE
 ================================================ */
-.ams-vco3{{{cns}}} #led-line {
+.ams-vco3{{{cns}}} .led-line {
   position: absolute;
   background-image: url(/resources/ams_vco3_sprites/led_line.png{{{ns}}});
   background-repeat: no-repeat;
