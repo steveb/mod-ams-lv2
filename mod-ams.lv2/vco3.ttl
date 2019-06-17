@@ -38,6 +38,14 @@
 	lv2:project <http://github.com/blablack/ams-lv2/> ;
 	doap:name "AMS VCO3" ;
 	doap:license <http://opensource.org/licenses/isc> ;
+
+rdfs:comment """
+The AMS VCO3 is an oscillator module which can generate multiple waveforms (sine, square, triangle, sawtooth). Additionally, it features CV inputs that can be used for frequency and pulse-width modulation, as well as a Sync input which allows for various types of oscillator sync sounds. 
+
+Features: 
+Ported from the AlsaModularSynth, a free and open-source project.
+""";
+
 	ll:pegName "p" ;
 	guiext:ui <http://github.com/blablack/ams-lv2/vco3/gui> ;
 	lv2:optionalFeature lv2:hardRTCapable ;

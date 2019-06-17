@@ -15,6 +15,15 @@
 	lv2:project <http://github.com/blablack/ams-lv2/> ;
 	doap:name "AMS LFO2 - Freq" ;
 	doap:license <http://opensource.org/licenses/isc> ;
+
+
+rdfs:comment """
+The AMS LFO2 module is a Control Voltage LFO which offers a variety of waveforms: sine, triangle, sawtooth up, sawtooth down, square and Sample & Hold. It also has an input that can be used to reset the phase of the LFO, and a control to set the phase-angle.  
+
+Features:
+Ported from the AlsaModularSynth, a free and open-source project.
+""";
+
 	ll:pegName "p" ;
 	guiext:ui <http://github.com/blablack/ams-lv2/lfo2_freq/gui> ;
 	lv2:optionalFeature lv2:hardRTCapable ;
