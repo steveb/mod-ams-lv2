@@ -12,7 +12,7 @@
   guiext:binary <vcaexp_gui.so> .
 
 <http://github.com/blablack/ams-lv2/vcaexp>
-    a lv2:Plugin, mod:ControlVoltage;
+    a lv2:Plugin, mod:ControlVoltagePlugin;
 	lv2:project <http://github.com/blablack/ams-lv2/> ;
 	doap:name "AMS VCA Exp" ;
 	doap:license <http://opensource.org/licenses/isc> ;

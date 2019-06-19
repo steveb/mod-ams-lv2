@@ -12,7 +12,7 @@
   guiext:binary <lfo2_freq_gui.so> .
 
 <http://github.com/blablack/ams-lv2/lfo2_freq>
-    a lv2:Plugin, mod:ControlVoltage;
+    a lv2:Plugin, mod:ControlVoltagePlugin;
 	lv2:project <http://github.com/blablack/ams-lv2/> ;
 	doap:name "AMS LFO2 - Freq" ;
 	doap:license <http://opensource.org/licenses/isc> ;

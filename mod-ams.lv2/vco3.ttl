@@ -34,7 +34,7 @@
     lv2:symbol "grpInput" .
 
 <http://github.com/blablack/ams-lv2/vco3>
-    a lv2:Plugin, mod:ControlVoltage;
+    a lv2:Plugin, mod:ControlVoltagePlugin;
 	lv2:project <http://github.com/blablack/ams-lv2/> ;
 	doap:name "AMS VCO3" ;
 	doap:license <http://opensource.org/licenses/isc> ;
