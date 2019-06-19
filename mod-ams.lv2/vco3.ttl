@@ -5,6 +5,7 @@
 @prefix lv2: 	<http://lv2plug.in/ns/lv2core#> .
 @prefix guiext: <http://lv2plug.in/ns/extensions/ui#> .
 @prefix pg:     <http://lv2plug.in/ns/ext/port-groups#> .
+@prefix mod:    <http://moddevices.com/ns/mod#>.
 @prefix ll: 	<http://ll-plugins.nongnu.org/lv2/namespace#> .
 @prefix param:  <http://lv2plug.in/ns/ext/parameters#> .
 
@@ -33,8 +34,7 @@
     lv2:symbol "grpInput" .
 
 <http://github.com/blablack/ams-lv2/vco3>
-	a lv2:Plugin ,
-		lv2:OscillatorPlugin ;
+    a lv2:Plugin, mod:ControlVoltagePlugin;
 	lv2:project <http://github.com/blablack/ams-lv2/> ;
 	doap:name "AMS VCO3" ;
 	doap:license <http://opensource.org/licenses/isc> ;
