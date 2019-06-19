@@ -4,6 +4,7 @@
 @prefix rdf: 	<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: 	<http://www.w3.org/2000/01/rdf-schema#> .
 @prefix ll: 	<http://ll-plugins.nongnu.org/lv2/namespace#> .
+@prefix mod: <http://moddevices.com/ns/mod#> .
 @prefix guiext: <http://lv2plug.in/ns/extensions/ui#> .
 
 <http://github.com/blablack/ams-lv2/lfo2_freq/gui>
@@ -11,7 +12,7 @@
   guiext:binary <lfo2_freq_gui.so> .
 
 <http://github.com/blablack/ams-lv2/lfo2_freq>
-	a lv2:Plugin, lv2:OscillatorPlugin ;
+    a lv2:Plugin, mod:ControlVoltage;
 	lv2:project <http://github.com/blablack/ams-lv2/> ;
 	doap:name "AMS LFO2 - Freq" ;
 	doap:license <http://opensource.org/licenses/isc> ;
