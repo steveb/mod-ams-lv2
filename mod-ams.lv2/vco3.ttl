@@ -131,7 +131,7 @@ Ported from the AlsaModularSynth, a free and open-source project.
 		lv2:index 6 ; 
 		lv2:symbol "octave" ;
 		lv2:name "Octave" ;
-		lv2:default 3 ;
+		lv2:default 0 ;
 		lv2:minimum 0 ;
 		lv2:maximum 6 ;
 		pg:group <http://github.com/blablack/ams-lv2/vco3#groupFrequency> ;
