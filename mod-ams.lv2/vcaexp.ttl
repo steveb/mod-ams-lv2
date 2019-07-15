@@ -17,6 +17,9 @@
 	doap:name "AMS VCA Exp" ;
 	doap:license <http://opensource.org/licenses/isc> ;
 
+    lv2:minorVersion 1;
+    lv2:microVersion 0;
+
 rdfs:comment """
 The AMS VCA Exp module is an exponential Voltage Controlled Amplifier used for volume modulation. It allows you to, for instance, modulate the output of the AMS VCO3 using the control voltage signal of the AMS Env.
 

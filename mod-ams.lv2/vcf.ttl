@@ -17,6 +17,9 @@
 	doap:name "AMS VCF" ;
 	doap:license <http://opensource.org/licenses/isc> ;
 
+    lv2:minorVersion 1;
+    lv2:microVersion 0;
+
 rdfs:comment """
 The AMS VCF module is a voltage controlled filter which offers a wide variety of filter types and flavours (multiple low-pass and band-pass flavours, as well as a high-pass and notch option). Additionally, it enables you to use other CV signals to modulate some of its features, such as frequency and resonance. 
 
