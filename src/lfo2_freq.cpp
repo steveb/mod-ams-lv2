@@ -111,6 +111,12 @@ void Lfo2Freq::run(uint32_t nframes)
 			old_t += ldt;
 			old_r += ldr;
 
+			old_si *= 5.0;
+			old_sa *= 5.0;
+			old_sh *= 5.0;
+			old_t  *= 5.0;
+			old_r  *= 5.0;
+
 			switch (waveForm)
 			{
 				case SINUS:

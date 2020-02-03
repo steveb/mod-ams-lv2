@@ -41,6 +41,11 @@ void Vcf::run(uint32_t nframes)
 		vcfTypeUsed = (int)(*p(p_vcfType));
 	}
 
+    float cv_fm = p(p_freqPort)[l2] * 0.2;
+    float exp_fm = p(p_expFM)[l2] * 0.2;
+    float cv_lin_fm = p(p_linFM)[l2] * 0.2;
+    float cv_res = p(p_resonancePort)[l2] * 0.2;
+
 	switch (vcfTypeUsed) {
 		case VCF_LR:
 		{
@@ -51,11 +56,11 @@ void Vcf::run(uint32_t nframes)
 			gain_linfm = 1000.0f * *p(p_linFMGain);
 
 			for (l2 = 0; l2 < nframes; ++l2) {
-				f = freq_const * (synthdata->exp2_table(freq_tune + p(p_freqPort)[l2] + *p(p_expFMGain) * p(p_expFM)[l2])
-								  + gain_linfm * p(p_linFM)[l2]);
+				f = freq_const * (synthdata->exp2_table(freq_tune + cv_fm + *p(p_expFMGain) * exp_fm)
+								  + gain_linfm * cv_lin_fm);
 				if (f < 0.0) f = 0.0;
 				else if (f > 0.99) f = 0.99;
-				q = q0 + *p(p_resonanceGain) * p(p_resonancePort)[l2];
+				q = q0 + *p(p_resonanceGain) * cv_res;
 				if (q < 0.01) q = 0.01;
 				else if (q > 1.0) q = 1.0;
 				fa = 1.0 - f;
@@ -84,11 +89,11 @@ void Vcf::run(uint32_t nframes)
 			gain_linfm = 1000.0f * *p(p_linFMGain);
 
 			for (l2 = 0; l2 < nframes; ++l2) {
-				f = synthdata->exp2_table(freq_tune + p(p_freqPort)[l2] + *p(p_expFMGain) * p(p_expFM)[l2])
-					+ gain_linfm * p(p_linFM)[l2];
+				f = synthdata->exp2_table(freq_tune + cv_fm + *p(p_expFMGain) * exp_fm)
+					+ gain_linfm * cv_lin_fm;
 				if (f < MIN_FREQ) f = MIN_FREQ;
 				else if (f > MAX_FREQ) f = MAX_FREQ;
-				q = q0 + *p(p_resonanceGain) * p(p_resonancePort)[l2];
+				q = q0 + *p(p_resonanceGain) * cv_res;
 				if (q < 0.01) q = 0.01;
 				else if (q > 1.0) q = 1.0;
 				iv_sin = sin(pi2_rate * f);
@@ -120,11 +125,11 @@ void Vcf::run(uint32_t nframes)
 			gain_linfm = 1000.0f * *p(p_linFMGain);
 
 			for (l2 = 0; l2 < nframes; ++l2) {
-				f = synthdata->exp2_table(freq_tune + p(p_freqPort)[l2] + *p(p_expFMGain) * p(p_expFM)[l2])
-					+ gain_linfm * p(p_linFM)[l2];
+				f = synthdata->exp2_table(freq_tune + cv_fm + *p(p_expFMGain) * exp_fm)
+					+ gain_linfm * cv_lin_fm;
 				if (f < MIN_FREQ) f = MIN_FREQ;
 				else if (f > MAX_FREQ) f = MAX_FREQ;
-				q = q0 + *p(p_resonanceGain) * p(p_resonancePort)[l2];
+				q = q0 + *p(p_resonanceGain) * cv_res;
 				if (q < 0.01) q = 0.01;
 				else if (q > 1.0) q = 1.0;
 				iv_sin = sin(pi2_rate * f);
@@ -156,11 +161,11 @@ void Vcf::run(uint32_t nframes)
 			gain_linfm = 1000.0f * *p(p_linFMGain);
 
 			for (l2 = 0; l2 < nframes; ++l2) {
-				f = synthdata->exp2_table(freq_tune + p(p_freqPort)[l2] + *p(p_expFMGain) * p(p_expFM)[l2])
-					+ gain_linfm * p(p_linFM)[l2];
+				f = synthdata->exp2_table(freq_tune + cv_fm + *p(p_expFMGain) * exp_fm)
+					+ gain_linfm * cv_lin_fm;
 				if (f < MIN_FREQ) f = MIN_FREQ;
 				else if (f > MAX_FREQ) f = MAX_FREQ;
-				q = q0 + *p(p_resonanceGain) * p(p_resonancePort)[l2];
+				q = q0 + *p(p_resonanceGain) * cv_res;
 				if (q < 0.01) q = 0.01;
 				else if (q > 1.0) q = 1.0;
 				iv_sin = sin(pi2_rate * f);
@@ -192,11 +197,11 @@ void Vcf::run(uint32_t nframes)
 			gain_linfm = 1000.0f * *p(p_linFMGain);
 
 			for (l2 = 0; l2 < nframes; ++l2) {
-				f = synthdata->exp2_table(freq_tune + p(p_freqPort)[l2] + *p(p_expFMGain) * p(p_expFM)[l2])
-					+ gain_linfm * p(p_linFM)[l2];
+				f = synthdata->exp2_table(freq_tune + cv_fm + *p(p_expFMGain) * exp_fm)
+					+ gain_linfm * cv_lin_fm;
 				if (f < MIN_FREQ) f = MIN_FREQ;
 				else if (f > MAX_FREQ) f = MAX_FREQ;
-				q = q0 + *p(p_resonanceGain) * p(p_resonancePort)[l2];
+				q = q0 + *p(p_resonanceGain) * cv_res;
 				if (q < 0.01) q = 0.01;
 				else if (q > 1.0) q = 1.0;
 				iv_sin = sin(pi2_rate * f);
@@ -227,11 +232,11 @@ void Vcf::run(uint32_t nframes)
 			gain_linfm = 1000.0f * *p(p_linFMGain);
 
 			for (l2 = 0; l2 < nframes; ++l2) {
-				f = synthdata->exp2_table(freq_tune + p(p_freqPort)[l2] + *p(p_expFMGain) * p(p_expFM)[l2])
-					+ gain_linfm * p(p_linFM)[l2];
+				f = synthdata->exp2_table(freq_tune + cv_fm + *p(p_expFMGain) * exp_fm)
+					+ gain_linfm * cv_lin_fm;
 				if (f < MIN_FREQ) f = MIN_FREQ;
 				else if (f > MAX_FREQ) f = MAX_FREQ;
-				q = q0 + *p(p_resonanceGain) * p(p_resonancePort)[l2];
+				q = q0 + *p(p_resonanceGain) * cv_res;
 				if (q < 0.01) q = 0.01;
 				else if (q > 1.0) q = 1.0;
 				iv_sin = sin(pi2_rate * f);
@@ -264,11 +269,11 @@ void Vcf::run(uint32_t nframes)
 			gain_linfm = 1000.0f * *p(p_linFMGain);
 
 			for (l2 = 0; l2 < nframes; ++l2) {
-				f = synthdata->exp2_table(freq_tune + p(p_freqPort)[l2] + *p(p_expFMGain) * p(p_expFM)[l2])
-					+ gain_linfm * p(p_linFM)[l2];
+				f = synthdata->exp2_table(freq_tune + cv_fm + *p(p_expFMGain) * exp_fm)
+					+ gain_linfm * cv_lin_fm;
 				if (f < MIN_FREQ) f = MIN_FREQ;
 				else if (f > MAX_FREQ2) f = MAX_FREQ2;
-				q = q0 + *p(p_resonanceGain) * p(p_resonancePort)[l2];
+				q = q0 + *p(p_resonanceGain) * cv_res;
 				if (q < 0.01) q = 0.01;
 				else if (q > 1.0) q = 1.0;
 				fa = inv2_rate * f;
@@ -310,11 +315,11 @@ void Vcf::run(uint32_t nframes)
 			gain_linfm = 1000.0f * *p(p_linFMGain);
 
 			for (l2 = 0; l2 < nframes; ++l2) {
-				f = synthdata->exp2_table(freq_tune + p(p_freqPort)[l2] + *p(p_expFMGain) * p(p_expFM)[l2])
-					+ gain_linfm * p(p_linFM)[l2];
+				f = synthdata->exp2_table(freq_tune + cv_fm + *p(p_expFMGain) * exp_fm)
+					+ gain_linfm * cv_lin_fm;
 				if (f < MIN_FREQ) f = MIN_FREQ;
 				else if (f > MAX_FREQ2) f = MAX_FREQ2;
-				qr = q0 + *p(p_resonanceGain) * p(p_resonancePort)[l2];
+				qr = q0 + *p(p_resonanceGain) * cv_res;
 				if (qr < 0.01) qr = 0.01;
 				else if (qr > 1.0) qr = 1.0;
 				fb = inv2_rate * f;
