@@ -50,7 +50,7 @@ void Lfo2Freq::run(uint32_t nframes)
 		dsa = 2.0 / wave_period;
 		dt0 = 4.0 / wave_period;
 
-		if (!trigger && (p(p_reset)[l2] > 0.5))
+		if (!trigger && (p(p_reset)[l2] > 0.2))
 		{
 			trigger = true;
 			t = 0;
