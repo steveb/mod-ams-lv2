@@ -55,7 +55,7 @@ void Vco3::run(uint32_t nframes)
 				phi = 0;
 			oldSyncValue = p(p_sync)[l2];
 
-			dphi = freq_const * (synthdata->exp2_table(freq_tune + (p(p_freq)[l2] * 0.2) +  *p(p_expFMGain) * (p(p_expFM)[l2] * 0.2)) + gain_linfm * (p(p_linFM)[l2] * 0.2));
+			dphi = freq_const * (synthdata->exp2_table(freq_tune + p(p_freq)[l2] +  *p(p_expFMGain) * (p(p_expFM)[l2] * 0.2)) + gain_linfm * (p(p_linFM)[l2] * 0.2));
 			if (dphi > wave_period_2)
 				dphi = wave_period_2;
 			phi1 = phi + phi_const;
@@ -182,7 +182,7 @@ void Vco3::run(uint32_t nframes)
 				phi = 0;
 			oldSyncValue = p(p_sync)[l2];
 
-			dphi = freq_const * (synthdata->exp2_table(freq_tune + (p(p_freq)[l2] * 0.2) +  *p(p_expFMGain) * (p(p_expFM)[l2] * 0.2)) + gain_linfm * (p(p_linFM)[l2] * 0.2));
+			dphi = freq_const * (synthdata->exp2_table(freq_tune + p(p_freq)[l2] +  *p(p_expFMGain) * (p(p_expFM)[l2] * 0.2)) + gain_linfm * (p(p_linFM)[l2] * 0.2));
 			if (dphi > wave_period_2)
 				dphi = wave_period_2;
 			phint = (int) phi;
