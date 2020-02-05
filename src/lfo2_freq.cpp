@@ -134,7 +134,7 @@ void Lfo2Freq::run(uint32_t nframes)
 					break;
 			}
 
-            p(p_output)[l2_out] = p(p_output)[l2_out] * 0.5;
+            p(p_output)[l2_out] = p(p_output)[l2_out] * 5.0;
 
 			l2_out++;
 		}
