@@ -36,6 +36,8 @@ void Lfo2Freq::run(uint32_t nframes)
 	int l2, k, len, l2_out;
 	double ldsi, ldsa, ldt, ldr, ldsh, dt0, dsa;
 
+    double scale  = 5.0;
+
 	waveForm = (int)(*p(p_waveForm));
 
 	len = nframes;
@@ -115,26 +117,24 @@ void Lfo2Freq::run(uint32_t nframes)
 			switch (waveForm)
 			{
 				case SINUS:
-					p(p_output)[l2_out] = old_si;
+					p(p_output)[l2_out] = old_si * scale;
 					break;
 				case TRIANGLE:
-					p(p_output)[l2_out] = old_t;
+					p(p_output)[l2_out] = old_t * scale;
 					break;
 				case SAWTOOTHUP:
-					p(p_output)[l2_out] = old_sa;
+					p(p_output)[l2_out] = old_sa * scale;
 					break;
 				case SAWTOOTHDOWN:
-					p(p_output)[l2_out] = -old_sa;
+					p(p_output)[l2_out] = -old_sa * scale;
 					break;
 				case RECTANGLE:
-					p(p_output)[l2_out] = -old_r;
+					p(p_output)[l2_out] = -old_r * scale;
 					break;
 				case SAMPLEANDHOLD:
-					p(p_output)[l2_out] = old_sh;
+					p(p_output)[l2_out] = old_sh * scale;
 					break;
 			}
-
-            p(p_output)[l2_out] = p(p_output)[l2_out] * 5.0;
 
 			l2_out++;
 		}
