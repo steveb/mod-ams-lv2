@@ -1,4 +1,5 @@
 #include <lvtk-1/lvtk/plugin.hpp>
+#include <iostream>
 
 #include "lfo2_freq.hpp"
 #include "lfo2_freq_ttl.hpp"
@@ -111,12 +112,6 @@ void Lfo2Freq::run(uint32_t nframes)
 			old_t += ldt;
 			old_r += ldr;
 
-			old_si *= 5.0;
-			old_sa *= 5.0;
-			old_sh *= 5.0;
-			old_t  *= 5.0;
-			old_r  *= 5.0;
-
 			switch (waveForm)
 			{
 				case SINUS:
@@ -138,6 +133,8 @@ void Lfo2Freq::run(uint32_t nframes)
 					p(p_output)[l2_out] = old_sh;
 					break;
 			}
+
+            p(p_output)[l2_out] = p(p_output)[l2_out] * 0.5;
 
 			l2_out++;
 		}
