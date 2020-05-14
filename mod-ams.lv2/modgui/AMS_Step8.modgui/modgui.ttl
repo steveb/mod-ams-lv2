@@ -1,0 +1,58 @@
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+
+<http://github.com/blablack/ams-lv2/seq_8>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon-ams-sequencer-8-steps.html> ;
+        modgui:stylesheet <modgui/stylesheet-ams-sequencer-8-steps.css> ;
+        modgui:screenshot <modgui/screenshot-ams-sequencer-8-steps.png> ;
+        modgui:thumbnail <modgui/thumbnail-ams-sequencer-8-steps.png> ;
+        modgui:brand "AMS" ;
+        modgui:label "Sequencer - 8 " ;
+        modgui:model "boxy" ;
+        modgui:panel "10-sliders" ;
+        modgui:color "white" ;
+        modgui:knob "aluminium" ;
+        modgui:port [
+            lv2:index 0 ;
+            lv2:symbol "pitchOffset" ;
+            lv2:name "Pitch Offset" ;
+        ] , [
+            lv2:index 1 ;
+            lv2:symbol "gateTime" ;
+            lv2:name "Gate Time" ;
+        ] , [
+            lv2:index 2 ;
+            lv2:symbol "pitch1" ;
+            lv2:name "Pitch 1" ;
+        ] , [
+            lv2:index 3 ;
+            lv2:symbol "pitch2" ;
+            lv2:name "Pitch 2" ;
+        ] , [
+            lv2:index 4 ;
+            lv2:symbol "pitch3" ;
+            lv2:name "Pitch 3" ;
+        ] , [
+            lv2:index 5 ;
+            lv2:symbol "pitch4" ;
+            lv2:name "Pitch 4" ;
+        ] , [
+            lv2:index 6 ;
+            lv2:symbol "pitch5" ;
+            lv2:name "Pitch 5" ;
+        ] , [
+            lv2:index 7 ;
+            lv2:symbol "pitch6" ;
+            lv2:name "Pitch 6" ;
+        ] , [
+            lv2:index 8 ;
+            lv2:symbol "gate7" ;
+            lv2:name "Gate 7" ;
+        ] , [
+            lv2:index 9 ;
+            lv2:symbol "gate8" ;
+            lv2:name "Gate 8" ;
+        ] ;
+    ] .

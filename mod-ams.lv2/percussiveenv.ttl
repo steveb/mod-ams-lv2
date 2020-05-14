@@ -4,6 +4,7 @@
 @prefix rdf: 	<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: 	<http://www.w3.org/2000/01/rdf-schema#> .
 @prefix ll: 	<http://ll-plugins.nongnu.org/lv2/namespace#> .
+@prefix mod:    <http://moddevices.com/ns/mod#>.
 
 <http://github.com/blablack/ams-lv2/percussiveenv>
 	a lv2:Plugin, lv2:EnvelopePlugin ;
@@ -13,13 +14,13 @@
 	ll:pegName "p" ;
 	lv2:optionalFeature lv2:hardRTCapable ;
 	lv2:port [
-		a lv2:InputPort, lv2:CVPort ;
+		a lv2:InputPort, lv2:CVPort, mod:CVPort ;
 		lv2:index 0 ;
 		lv2:symbol "trigger" ;
 		lv2:name "Trigger" ;
 		lv2:default 0.0 ;
 		lv2:minimum 0.0 ;
-        lv2:maximum 1.0 ;
+        lv2:maximum 10.0 ;
 	] ,	[
 	  	a lv2:InputPort, lv2:ControlPort ;
 		lv2:index 1 ;
@@ -61,7 +62,7 @@
 		lv2:minimum 1 ;
 		lv2:maximum 10 ;
 	] ,	[
-		a lv2:OutputPort, lv2:CVPort ;
+		a lv2:OutputPort, lv2:CVPort, mod:CVPort ;
 		lv2:index 6 ;
 		lv2:symbol "out" ;
 		lv2:name "Out" ;
@@ -69,11 +70,11 @@
 		lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
 	] ,	[
-		a lv2:OutputPort, lv2:CVPort ;
+		a lv2:OutputPort, lv2:CVPort, mod:CVPort ;
 		lv2:index 7 ;
 		lv2:symbol "invOut" ;
 		lv2:name "Inverse Out" ;
 		lv2:default 0.0 ;
-		lv2:minimum -1.0 ;
+		lv2:minimum -10.0 ;
         lv2:maximum 0.0 ;
 	].

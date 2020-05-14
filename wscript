@@ -148,6 +148,21 @@ def build(bld):
                      ['LV2', 'LVTK_PLUGIN'],
                      ['src/synthdata.cpp'])
 
+    plugins = '''
+    8
+    '''.split()
+
+    for i in plugins:
+       build_plugin(bld, 'mod-ams.lv2', 'seq_%s' % i, ['src/seq.cpp'],
+                    ['-DPLUGIN_CLASS=seq_%s' % i,
+                     '-std=c++11',
+                     '-DURI_PREFIX=\"http://github.com/blablack/ams-lv2/\"',
+                     '-DPLUGIN_URI_SUFFIX="seq_%s"' % i,
+                     '-DPLUGIN_HEADER="src/seq.hpp"'],
+                    ['-DSTEP_COUNT=%s' % i],
+                    ['LV2', 'LVTK_PLUGIN'],
+                    ['src/synthdata.cpp'])
+
 ########################################################################
     build_ui(bld, 'mod-ams.lv2')
 ########################################################################
