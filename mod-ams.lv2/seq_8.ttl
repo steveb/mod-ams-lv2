@@ -5,6 +5,7 @@
 @prefix rdfs: 	<http://www.w3.org/2000/01/rdf-schema#> .
 @prefix pg:     <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix ll: 	<http://ll-plugins.nongnu.org/lv2/namespace#> .
+@prefix units: <http://lv2plug.in/ns/extensions/units#> .
 @prefix mod:    <http://moddevices.com/ns/mod#>.
 
 <http://github.com/blablack/ams-lv2/seq_8#main_controls>
@@ -92,6 +93,8 @@
 		lv2:default 120 ;
 		lv2:minimum 3 ;
 		lv2:maximum 300 ;
+        units:unit units:bpm ;
+        lv2:portProperty  mod:tempoRelatedDynamicScalePoints;
 		pg:group <http://github.com/blablack/ams-lv2/seq_8#main_controls> ;
 	] ,	[
 	  	a lv2:InputPort, lv2:ControlPort ;
