@@ -30,21 +30,21 @@ Ported from the AlsaModularSynth, a free and open-source project.
 	guiext:ui <http://github.com/blablack/ams-lv2/vcaexp/gui> ;
 	lv2:optionalFeature lv2:hardRTCapable ;
 	lv2:port [
-		a lv2:InputPort, lv2:CVPort ;
+		a lv2:InputPort, lv2:CVPort, mod:CVPort ;
 		lv2:index 0 ; 
 		lv2:symbol "gain1Data" ;
 		lv2:name "Main Gain" ;
 		lv2:default 0.0 ;
-		lv2:minimum -1.0 ;
-        lv2:maximum 1.0 ;
+		lv2:minimum -5.0 ;
+        lv2:maximum 5.0 ;
 	] ,	[
-		a lv2:InputPort, lv2:CVPort ;
+		a lv2:InputPort, lv2:CVPort, mod:CVPort ;
 		lv2:index 1 ; 
 		lv2:symbol "gain2Data" ;
 		lv2:name "2nd Gain" ;
 		lv2:default 0.0 ;
-		lv2:minimum -1.0 ;
-        lv2:maximum 1.0 ;
+		lv2:minimum -5.0 ;
+        lv2:maximum 5.0 ;
 	] ,	[
 		a lv2:InputPort, lv2:AudioPort ;
 		lv2:index 2 ; 
@@ -93,8 +93,8 @@ Ported from the AlsaModularSynth, a free and open-source project.
 		lv2:symbol "outputLevel" ;
 		lv2:name "Output Level" ;
 		lv2:default 0.25 ;
-		lv2:minimum 0 ;
-		lv2:maximum 0.5 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 0.50 ;
 	] ,	[
 		a lv2:OutputPort, lv2:AudioPort ;
 		lv2:index 9 ; 

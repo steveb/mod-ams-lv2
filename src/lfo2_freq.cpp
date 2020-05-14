@@ -1,4 +1,5 @@
 #include <lvtk-1/lvtk/plugin.hpp>
+#include <iostream>
 
 #include "lfo2_freq.hpp"
 #include "lfo2_freq_ttl.hpp"
@@ -35,6 +36,8 @@ void Lfo2Freq::run(uint32_t nframes)
 	int l2, k, len, l2_out;
 	double ldsi, ldsa, ldt, ldr, ldsh, dt0, dsa;
 
+    double scale  = 5.0;
+
 	waveForm = (int)(*p(p_waveForm));
 
 	len = nframes;
@@ -49,7 +52,7 @@ void Lfo2Freq::run(uint32_t nframes)
 		dsa = 2.0 / wave_period;
 		dt0 = 4.0 / wave_period;
 
-		if (!trigger && (p(p_reset)[l2] > 0.5))
+		if (!trigger && (p(p_reset)[l2] > 0.2))
 		{
 			trigger = true;
 			t = 0;
@@ -114,22 +117,22 @@ void Lfo2Freq::run(uint32_t nframes)
 			switch (waveForm)
 			{
 				case SINUS:
-					p(p_output)[l2_out] = old_si;
+					p(p_output)[l2_out] = old_si * scale;
 					break;
 				case TRIANGLE:
-					p(p_output)[l2_out] = old_t;
+					p(p_output)[l2_out] = old_t * scale;
 					break;
 				case SAWTOOTHUP:
-					p(p_output)[l2_out] = old_sa;
+					p(p_output)[l2_out] = old_sa * scale;
 					break;
 				case SAWTOOTHDOWN:
-					p(p_output)[l2_out] = -old_sa;
+					p(p_output)[l2_out] = -old_sa * scale;
 					break;
 				case RECTANGLE:
-					p(p_output)[l2_out] = -old_r;
+					p(p_output)[l2_out] = -old_r * scale;
 					break;
 				case SAMPLEANDHOLD:
-					p(p_output)[l2_out] = old_sh;
+					p(p_output)[l2_out] = old_sh * scale;
 					break;
 			}
 

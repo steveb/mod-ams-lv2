@@ -27,8 +27,8 @@ void Env::run(uint32_t nframes)
 	int idl, idla, idlah, idlahdc;
 
 	tscale = *p(p_timeScale) * (float)m_rate;
-	de_attack = (*p(p_attack) > 0) ? 1.0 / (*p(p_attack) * tscale) : 0;
-	de_decay = (*p(p_decay) > 0) ? (1.0 - *p(p_sustain)) / (*p(p_decay) * tscale) : 0;
+	de_attack = (*p(p_attack) > 0) ? 10.0 / (*p(p_attack) * tscale) : 0;
+	de_decay = (*p(p_decay) > 0) ? (10.0 - *p(p_sustain)) / (*p(p_decay) * tscale) : 0;
 	a = tscale * *p(p_attack);
 	dl = tscale * *p(p_delay);
 	idl = (int)dl;
@@ -121,7 +121,7 @@ void Env::run(uint32_t nframes)
 					e += de_attack;
 					break;
 				case 3:
-					e = 1.0;
+					e = 10.0;
 					break;
 				case 4:
 					e -= de_decay;
