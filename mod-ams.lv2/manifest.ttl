@@ -21,6 +21,11 @@
 	lv2:binary <env.so>  ;
 	rdfs:seeAlso <env.ttl> , <modgui/AMS_Env.modgui/modgui.ttl> .
 
+<http://github.com/blablack/ams-lv2/percussiveenv>
+	a lv2:Plugin ;
+	lv2:binary <percussiveenv.so>  ;
+	rdfs:seeAlso <percussiveenv.ttl> , <modgui/AMS_PercEnv.modgui/modgui.ttl> .
+
 <http://github.com/blablack/ams-lv2/lfo2_freq>
 	a lv2:Plugin ;
 	lv2:binary <lfo2_freq.so>  ;

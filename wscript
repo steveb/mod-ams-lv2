@@ -81,7 +81,7 @@ def build_plugin(bld, bundle, name, source, cxxflags=[], cppflags=[], libs=[], a
     bld.install_files('${LV2DIR}/' + bundle, os.path.join(bundle, data_file))
 
 def build_ui(bld, bundle):
-    
+
     bundlePath = os.path.join(bundle, 'modgui')
 
     for path, subdirs, files in os.walk(r'%s' % bundlePath):
@@ -115,6 +115,7 @@ def build(bld):
     env
     lfo2_freq
     vcalin
+    percussiveenv
     '''.split()
 
     for i in plugins:
