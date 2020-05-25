@@ -11,6 +11,19 @@
 	lv2:project <http://github.com/blablack/ams-lv2/> ;
 	doap:name "AMS Percussive Envelope" ;
 	doap:license <http://opensource.org/licenses/isc> ;
+
+
+    lv2:minorVersion 1;
+    lv2:microVersion 0;
+
+rdfs:comment """
+The AMS Percussive Env is a Control Voltage envelope module tailored towards creating percussive sounds. It features extra parameters for hold and delay as well as a variable scale that acts over the duration of the envelope.
+
+Features:
+Ported from the AlsaModularSynth, a free and open-source project.
+""";
+
+
 	ll:pegName "p" ;
 	lv2:optionalFeature lv2:hardRTCapable ;
 	lv2:port [

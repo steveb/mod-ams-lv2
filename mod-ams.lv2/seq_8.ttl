@@ -30,6 +30,23 @@
 	lv2:project <http://github.com/blablack/ams-lv2/> ;
 	doap:name "AMS Sequencer 8 Steps" ;
 	doap:license <http://opensource.org/licenses/isc> ;
+
+    lv2:minorVersion 1;
+    lv2:microVersion 0;
+
+rdfs:comment """
+A Control Voltage step sequencer with 8 steps. 
+
+All steps have an individual control for pitch, velocity and gate.
+The duration of the notes is ruled by a combination of BPM and division controls.
+
+The CV input port is used to trigger the next step in the sequence. A common practice is to connect a CV Clock to this input, for getting a clock synced sequence.
+
+
+Features:
+Ported from the AlsaModularSynth, a free and open-source project.
+""";
+
 	ll:pegName "p" ;
 	lv2:optionalFeature lv2:hardRTCapable ;
 	lv2:port
