@@ -26,7 +26,7 @@
 
 
 <http://github.com/blablack/ams-lv2/seq_8>
-	a lv2:Plugin, lv2:UtilityPlugin ;
+    a lv2:Plugin, mod:ControlVoltagePlugin;
 	lv2:project <http://github.com/blablack/ams-lv2/> ;
 	doap:name "AMS Sequencer 8 Steps" ;
 	doap:license <http://opensource.org/licenses/isc> ;
