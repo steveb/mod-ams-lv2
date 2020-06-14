@@ -6,77 +6,53 @@
 @prefix ll: 	<http://ll-plugins.nongnu.org/lv2/namespace#> .
 @prefix mod:    <http://moddevices.com/ns/mod#>.
 
-<http://github.com/blablack/ams-lv2/env>
+<http://github.com/blablack/ams-lv2/percussiveenv>
     a lv2:Plugin, mod:ControlVoltagePlugin;
 	lv2:project <http://github.com/blablack/ams-lv2/> ;
-	doap:name "AMS Envelope" ;
+	doap:name "AMS Percussive Envelope" ;
 	doap:license <http://opensource.org/licenses/isc> ;
+
 
     lv2:minorVersion 1;
     lv2:microVersion 0;
 
 rdfs:comment """
-The AMS Env is a Control Voltage envelope module with added spice. It features extra parameters for hold and delay as well as a variable scale which scales the whole duration of the envelope.
+The AMS Percussive Env is a Control Voltage envelope module tailored towards creating percussive sounds. It features extra parameters for hold and delay as well as a variable scale that acts over the duration of the envelope.
 
 Features:
 Ported from the AlsaModularSynth, a free and open-source project.
 """;
+
 
 	ll:pegName "p" ;
 	lv2:optionalFeature lv2:hardRTCapable ;
 	lv2:port [
 		a lv2:InputPort, lv2:CVPort, mod:CVPort ;
 		lv2:index 0 ;
-		lv2:symbol "gate" ;
-		lv2:name "Gate" ;
+		lv2:symbol "trigger" ;
+		lv2:name "Trigger" ;
 		lv2:default 0.0 ;
 		lv2:minimum 0.0 ;
         lv2:maximum 10.0 ;
-        lv2:portProperty lv2:toggled ;
-	] ,	[
-		a lv2:InputPort, lv2:CVPort, mod:CVPort ;
-		lv2:index 1 ;
-		lv2:symbol "retrigger" ;
-		lv2:name "Retrigger" ;
-		lv2:default 0.0 ;
-		lv2:minimum 0.0 ;
-        lv2:maximum 10.0 ;
-        lv2:portProperty lv2:toggled ;
 	] ,	[
 	  	a lv2:InputPort, lv2:ControlPort ;
-		lv2:index 2 ;
+		lv2:index 1 ;
 		lv2:symbol "attack" ;
 		lv2:name "Attack" ;
-		lv2:default 0.01 ;
+		lv2:default 0.05 ;
 		lv2:minimum 0 ;
 		lv2:maximum 1 ;
 	] ,	[
 	  	a lv2:InputPort, lv2:ControlPort ;
-		lv2:index 3 ;
+		lv2:index 2 ;
 		lv2:symbol "decay" ;
 		lv2:name "Decay" ;
 		lv2:default 0.1 ;
 		lv2:minimum 0 ;
 		lv2:maximum 1 ;
-	] , [
-	  	a lv2:InputPort, lv2:ControlPort ;
-		lv2:index 4 ;
-		lv2:symbol "sustain" ;
-		lv2:name "Sustain" ;
-		lv2:default 7.0 ;
-		lv2:minimum 0.0 ;
-		lv2:maximum 10.0 ;
 	] ,	[
 	  	a lv2:InputPort, lv2:ControlPort ;
-		lv2:index 5 ;
-		lv2:symbol "release" ;
-		lv2:name "Release" ;
-		lv2:default 0.01 ;
-		lv2:minimum 0 ;
-		lv2:maximum 1 ;
-	] ,	[
-	  	a lv2:InputPort, lv2:ControlPort ;
-		lv2:index 6 ;
+		lv2:index 3 ;
 		lv2:symbol "delay" ;
 		lv2:name "Delay" ;
 		lv2:default 0 ;
@@ -84,7 +60,7 @@ Ported from the AlsaModularSynth, a free and open-source project.
 		lv2:maximum 1 ;
 	] ,	[
 	  	a lv2:InputPort, lv2:ControlPort ;
-		lv2:index 7 ;
+		lv2:index 4 ;
 		lv2:symbol "hold" ;
 		lv2:name "Hold" ;
 		lv2:default 0.02 ;
@@ -92,23 +68,23 @@ Ported from the AlsaModularSynth, a free and open-source project.
 		lv2:maximum 1 ;
 	] ,	[
 	  	a lv2:InputPort, lv2:ControlPort ;
-		lv2:index 8 ;
+		lv2:index 5 ;
 		lv2:symbol "timeScale" ;
 		lv2:name "Time Scale" ;
-		lv2:default 1.00 ;
+		lv2:default 0.1 ;
 		lv2:minimum 1 ;
 		lv2:maximum 10 ;
 	] ,	[
 		a lv2:OutputPort, lv2:CVPort, mod:CVPort ;
-		lv2:index 9 ;
+		lv2:index 6 ;
 		lv2:symbol "out" ;
 		lv2:name "Out" ;
 		lv2:default 0.0 ;
 		lv2:minimum 0.0 ;
-        lv2:maximum 10.0 ;
+        lv2:maximum 1.0 ;
 	] ,	[
 		a lv2:OutputPort, lv2:CVPort, mod:CVPort ;
-		lv2:index 10 ;
+		lv2:index 7 ;
 		lv2:symbol "invOut" ;
 		lv2:name "Inverse Out" ;
 		lv2:default 0.0 ;
