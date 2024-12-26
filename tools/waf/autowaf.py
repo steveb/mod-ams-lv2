@@ -42,24 +42,27 @@ def set_options(opt, debug_by_default=False):
     # Move --prefix and --destdir to directory options group
     for k in ('--prefix', '--destdir'):
         option = opt.parser.get_option(k)
+        option_arg = option.option_strings[0]
         if option:
             opt.parser.remove_option(k)
-            dirs_options.add_option(option)
+            dirs_options.add_option(option_arg,
+                                    default=option.default,
+                                    type=option.type, help=option.help)
 
     # Standard directory options
-    dirs_options.add_option('--bindir', type='string',
+    dirs_options.add_option('--bindir',
                             help="Executable programs [Default: PREFIX/bin]")
-    dirs_options.add_option('--configdir', type='string',
+    dirs_options.add_option('--configdir',
                             help="Configuration data [Default: PREFIX/etc]")
-    dirs_options.add_option('--datadir', type='string',
+    dirs_options.add_option('--datadir',
                             help="Shared data [Default: PREFIX/share]")
-    dirs_options.add_option('--includedir', type='string',
+    dirs_options.add_option('--includedir',
                             help="Header files [Default: PREFIX/include]")
-    dirs_options.add_option('--libdir', type='string',
+    dirs_options.add_option('--libdir',
                             help="Libraries [Default: PREFIX/lib]")
-    dirs_options.add_option('--mandir', type='string',
+    dirs_options.add_option('--mandir',
                             help="Manual pages [Default: DATADIR/man]")
-    dirs_options.add_option('--docdir', type='string',
+    dirs_options.add_option('--docdir',
                             help="HTML documentation [Default: DATADIR/doc]")
 
     # Build options
@@ -81,7 +84,7 @@ def set_options(opt, debug_by_default=False):
                    help="Install LV2 bundles to user location")
     opt.add_option('--lv2-system', action='store_true', default=False, dest='lv2_system',
                    help="Install LV2 bundles to system location")
-    dirs_options.add_option('--lv2dir', type='string',
+    dirs_options.add_option('--lv2dir',
                             help="LV2 bundles [Default: LIBDIR/lv2]")
     g_step = 1
 
